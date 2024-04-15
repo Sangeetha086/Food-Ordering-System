@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart Contents</title>
+    <style>
+        
+
+
+
+
+
+        body {
+            font-family: Arial, sans-serif;
+            background:url('checkoutpage.jpg') ;
+            background-size: cover;
+            
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="number"],input[type="text"] {
+            width: 50%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        #cart-items {
+            margin-bottom: 20px;
+        }
+
+        #cart-items .cart-item {
+            margin-bottom: 10px;
+        }
+
+        #total {
+            font-weight: bold;
+        }
+
+        button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        button:last-child {
+            margin-right: 0;
+        }
+
+    </style>
+</head>
+
+<body >
+    
+
+    <div class="container">
+
+    <h1>Customer Details</h1>
+
+    <label for="name">Name</label>
+    <input type="text" id="name" placeholder="Enter your name">
+
+    <label for="table-input">Table number:</label>
+    <input type="number" id="table-input" placeholder="Enter table number">
+
+    <label for="phone-input">Phone Number:</label>
+    <input type="number" id="phone-input" placeholder="Enter phone number">
+
+    <h1>Your order</h1>
+
+    <div id="cart-items"></div>
+    <div id="order-id"></div>
+    <div id="total"></div>
+
+
+
+    <!-- Add this "Complete Order" button -->
+    <br>
+    <br>
+    <button id="complete-order-btn" onclick="completeOrder()">Proceed</button>
+    <button id="complete-order-btn" onclick="goback()">Cancel Order</button>
+    
+</div>
+
+
+    
+
+    <script>
+        var storedCart = sessionStorage.getItem("cart");
+        var cart = storedCart ? JSON.parse(storedCart) : [];
+
+        // Display cart contents
+        var cartItemsContainer = document.getElementById("cart-items");
+        var totalContainer = document.getElementById("total");
+        var orderIdContainer = document.getElementById("order-id");
+
+        // Function to display the cart
+        function displayCart() {
+            cartItemsContainer.innerHTML = "";
+            cart.forEach(function (item) {
+                var cartItem = document.createElement("div");
+                cartItem.className = "cart-item";
+                cartItem.innerHTML = "<strong>" + item.name + "</strong>";
+                cartItemsContainer.appendChild(cartItem);
+            });
+
+            var total = cart.reduce(function (acc, item) {
+                return acc + item.price;
+            }, 0);
+            totalContainer.textContent = "Total: ₹" + total.toFixed(2);
+        }
+
+        // Function to add new item to the cart
+        
+        
+        // Function to view order details
+        function goback() {
+            sessionStorage.removeItem("cart");
+            sessionStorage.removeItem("orderID");
+            sessionStorage.removeItem("table");
+            sessionStorage.removeItem("phone");
+            window.location.href = "menu.html";
+        }
+
+         // Function to complete the order
+        function completeOrder() {
+            var tableInput = document.getElementById("table-input").value;
+            var phoneInput = document.getElementById("phone-input").value;
+            var name=document.getElementById("name").value;
+            var orderId = generateOrderID(tableInput, phoneInput);
+            sessionStorage.setItem("cart", JSON.stringify(cart));
+            sessionStorage.setItem("orderID", orderId);
+            sessionStorage.setItem("name",name);
+            sessionStorage.setItem("table",tableInput);
+            sessionStorage.setItem("phone",phoneInput);
+           
+            window.location.href = "complete.html";
+        }
+
+
+
+
+        // Function to generate a random order ID based on table and phone
+        function generateOrderID(table, phone) {
+            return "ORDER" + table + phone + Math.floor(Math.random() * 10000);
+        }
+
+        // Call displayCart when the page loads
+        window.onload = displayCart;
+    </script>
+</body>
+</html>

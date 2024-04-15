@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Canteen Order History</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 1em 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    form {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 20px;
+    }
+
+    input[type="text"] {
+      width: 70%;
+      padding: 10px;
+    }
+
+    button {
+      padding: 10px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #333;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Canteen Order History</h1>
+  </header>
+
+  <div class="container">
+    <form id="searchForm">
+      <input type="text" id="searchInput" placeholder="Search by order ID...">
+      <button type="button" onclick="searchOrder()">Search</button>
+    </form>
+
+    <table id="orderTable">
+      <thead>
+        <tr>
+          <th>Order ID</th>
+          <th>Item</th>
+          <th>Quantity</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Populate this area with order history data dynamically -->
+        <tr>
+          <td>1</td>
+          <td>Burger</td>
+          <td>2</td>
+          <td>2024-01-19</td>
+        </tr>
+        <!-- Add more rows as needed -->
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    function searchOrder() {
+      // Implement the search functionality using JavaScript
+      var searchInput = document.getElementById("searchInput").value.toLowerCase();
+      var table = document.getElementById("orderTable");
+      var rows = table.getElementsByTagName("tr");
+
+      for (var i = 1; i < rows.length; i++) {
+        var cells = rows[i].getElementsByTagName("td");
+        var orderId = cells[0].textContent.toLowerCase();
+
+        if (orderId.includes(searchInput)) {
+          rows[i].style.display = "";
+        } else {
+          rows[i].style.display = "none";
+        }
+      }
+    }
+  </script>
+
+</body>
+</html>

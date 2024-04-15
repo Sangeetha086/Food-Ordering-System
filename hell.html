@@ -1,0 +1,396 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  
+  <title> Food Menu</title>
+  <link rel="stylesheet" href="styles.css">
+
+
+  
+  <style>
+  #cart {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+    padding: 20px;
+}
+
+
+</style>
+</head>
+<body>
+
+
+
+<header>
+
+
+<div class="container gray highlightTextIn">
+  
+
+  <a href="home2.html">HOME</a>
+  <a alt="MENU">MENU</a>
+  <a alt="ORDER HISTORY">ORDER HISTORY</a>
+  <a alt="REPORT">REPORT</a>
+  <a alt="CONTACT">CONTACT</a>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <section class="menu-container">
+    <div class="menu-item" id="item1">
+      <img src="briyani.jpg" alt="dish 1">
+      <div class="item-info">
+        <h2>Chicken briyani</h2>
+        
+        <p class="price">₹180</p>
+        <button onclick="addToCart('Chicken briyani', 180)">Add to Cart</button>
+      </div>
+    </div>
+
+    <div class="menu-item" id="item2">
+      <img src="mutton.jpg" alt="Dish 2">
+      <div class="item-info">
+        <h2>Mutton briyani</h2>
+        
+        <p class="price">₹230</p>
+        <button onclick="addToCart('mutton briyani', 230)">Add to Cart</button>
+      </div>
+    </div>
+
+
+
+<div class="menu-item" id="item2">
+      <img src="wings.jpeg" alt="Dish 3">
+      <div class="item-info">
+        <h2>bbq wings</h2>
+        
+        <p class="price">₹150</p>
+        <button onclick="addToCart('wings', 150)">Add to Cart</button>
+      </div>
+    </div>
+
+
+<div class="menu-item" id="item2">
+      <img src="nuggets.jpg" alt="Dish 4">
+      <div class="item-info">
+        <h2>Chicken nuggets</h2>
+        
+        <p class="price">₹100</p>
+        <button onclick="addToCart('nuggets', 100)">Add to Cart</button>
+      </div>
+    </div>
+
+
+
+<div class="menu-item" id="item2">
+      <img src="pizza.jpg" alt="Dish 5>
+      <div class="item-info">
+        <h2>pepperoni pizza </h2>
+        
+        <p class="price">₹260</p>
+        <button onclick="addToCart('pepperoni pizzaa', 260)">Add to Cart</button>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+<div class="menu-item" id="item2">
+      <img src="shake.jpg" alt="Dish 6>
+      <div class="item-info">
+        <h2>strawberry milkshake </h2> 
+        
+        <p class="price">₹90</p>
+        <button onclick="addToCart('strawberry milkshake',90)">Add to Cart</button>
+      </div>
+    </div>
+
+
+
+<div class="menu-item" id="item2">
+      <img src="mojito.jpg" alt="Dish 7">
+      <div class="item-info">
+        <h2>mojito</h2>
+        
+        <p class="price">₹90</p>
+        <button onclick="addToCart('mojito', 90)">Add to Cart</button>
+      </div>
+    </div>
+
+
+
+<div class="menu-item" id="item2">
+      <img src="pasta.jpg" alt="Dish 8">
+      <div class="item-info">
+        <h2>chicken pasta</h2>
+        
+        <p class="price">₹180</p>
+        <button onclick="addToCart('chicken pasta', 180 )">Add to Cart</button>
+      </div>
+    </div>
+
+
+
+
+
+<div class="menu-item" id="item2">
+      <img src="lava.jpg" alt="Dish 9">
+      <div class="item-info">
+        <h2>Molten lava</h2>
+        
+        <p class="price">₹70</p>
+        <button onclick="addToCart('Molten lava', 70)">Add to Cart</button>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="menu-item" id="item2">
+      <img src="coffee.jpg" alt="Dish 10">
+      <div class="item-info">
+        <h2>Coffee</h2>
+        
+        <p class="price">₹30</p>
+        <button onclick="addToCart('Coffee', 30)">Add to Cart</button>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="menu-item" id="item2">
+      <img src="burger.jpg" alt="Dish 11">
+      <div class="item-info">
+        <h2>Chicken burger</h2>
+        
+        <p class="price">₹120</p>
+        <button onclick="addToCart('Chicken burger', 120)">Add to Cart</button>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+<div class="menu-item" id="item2">
+      <img src="fried.jpg" alt="Dish 12">
+      <div class="item-info">
+        <h2>fried chicken</h2>
+       <p>4piece</p>
+        <p class="price">₹300</p>
+        <button onclick="addToCart('fried chicken', 12.99)">Add to Cart</button>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Add more menu items as needed -->
+
+  </section>
+
+  <div id="cart">
+        <h2>Shopping Cart</h2>
+        <div id="cart-items"></div>
+        <p>Total Amount: $<span id="total">0.00</span></p>
+        <button id="checkout-btn" onclick="proceedToCheckout()">Proceed to Checkout</button>
+    </div>
+
+    <div id="bill-list">
+        <h2>Bill</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Item</th>
+                    <th>Price</th>
+                </tr>
+            </thead>
+            <tbody id="bill-items"></tbody>
+        </table>
+        <p>Total Amount: $<span id="final-total">0.00</span></p>
+    </div>
+
+    <script>
+        let cartItems = [];
+
+        function addToCart(button) {
+            let foodItem = button.parentElement;
+            let itemName = foodItem.getAttribute('data-name');
+            let itemPrice = parseFloat(foodItem.getAttribute('data-price'));
+
+            cartItems.push({ name: itemName, price: itemPrice });
+            updateCart();
+        }
+
+        function updateCart() {
+            let cartItemsDiv = document.getElementById('cart-items');
+            let totalAmount = document.getElementById('total');
+
+            cartItemsDiv.innerHTML = "";
+            let total = 0;
+
+            cartItems.forEach(item => {
+                let cartItemDiv = document.createElement('div');
+                cartItemDiv.innerHTML = `${item.name} - $${item.price.toFixed(2)}`;
+                cartItemsDiv.appendChild(cartItemDiv);
+                total += item.price;
+            });
+
+            totalAmount.textContent = total.toFixed(2);
+        }
+
+        function proceedToCheckout() {
+            let billItemsDiv = document.getElementById('bill-items');
+            let finalTotalAmount = document.getElementById('final-total');
+
+            billItemsDiv.innerHTML = "";
+            let finalTotal = 0;
+
+            cartItems.forEach(item => {
+                let billItemRow = document.createElement('tr');
+                billItemRow.innerHTML = `<td>${item.name}</td><td>$${item.price.toFixed(2)}</td>`;
+                billItemsDiv.appendChild(billItemRow);
+                finalTotal += item.price;
+            });
+
+            finalTotalAmount.textContent = finalTotal.toFixed(2);
+
+            document.getElementById('cart').style.display = 'none';
+            document.getElementById('bill-list').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <meta name="description" content="">
+        <meta name="author" content="Tooplate">
+
+        <title>Moso Interior -  HTML CSS Template</title>
+
+        <!-- CSS FILES -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+        <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;300;400;600;700&display=swap" rel="stylesheet">
+
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+
+        <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+        <link href="css/owl.carousel.min.css" rel="stylesheet">
+
+        <link href="css/tooplate-moso-interior.css" rel="stylesheet">
+        
+
+
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+            }
+    
+            .container1 {
+                display: flex;
+                justify-content: space-around;
+                align-items: center;
+                height: 100vh;
+            }
+    
+            .column {
+                flex: 1;
+                text-align: center;
+            }
+    
+            button {
+                padding: 10px 20px;
+                background-color: #4caf50;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+                margin-bottom: 10px;
+            }
+    
+            button:hover {
+                background-color: #45a049;
+            }
+        </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </head>
+    
+    <body>
+
+        <nav class="navbar navbar-expand-lg bg-light fixed-top shadow-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">MCC<span class="tooplate-red">CAFFE</span><span class="tooplate-green">TERIA</span></a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_1">Home</a>
+                        </li>
+
+                        <li class="nav-item">
+                            <a class="nav-link click-scroll" href="#section_2">About</a>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    
+
+        <div class="container1">
+            <div class="column">
+                <h2>View Order Details</h2>
+                <button onclick="viewOrderDetails()">View</button>
+            </div>
+            <div class="column">
+                <h2>View Reports</h2>
+                <button onclick="viewReports()">View</button>
+            </div>
+            <div class="column">
+                <h2>View User Contacts</h2>
+                <button onclick="viewUserContacts()">View</button>
+            </div>
+        </div>
+    
+        <script>
+            function viewOrderDetails() {
+                // Logic to view order details
+                alert('View Order Details');
+            }
+    
+            function viewReports() {
+                // Logic to view reports
+                alert('View Reports');
+            }
+    
+            function viewUserContacts() {
+                // Logic to view user contacts
+                alert('View User Contacts');
+            }
+        </script>
+
+
+</body>
+</html>

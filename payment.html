@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Options</title>
+    <style>
+        /* Styles for the payment page */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            padding-top: 100px;
+        }
+        .container {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        h2 {
+            margin-bottom: 20px;
+        }
+        .payment-option {
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
+            cursor: pointer; /* Add cursor pointer */
+        }
+        .payment-option:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .payment-option h3 {
+            margin-bottom: 10px;
+        }
+        .payment-option p {
+            margin-bottom: 0;
+        }
+        .payment-details {
+            display: none; /* Initially hide payment details */
+            padding: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Select Payment Method</h2>
+        <div class="payment-option" onclick="togglePaymentDetails('creditCard')">
+            <h3>Credit Card</h3>
+            <p>Pay securely using your credit card.</p>
+            <div class="payment-details" id="creditCardDetails">
+                <!-- Add form or button for credit card payment -->
+            </div>
+        </div>
+        <div class="payment-option" onclick="togglePaymentDetails('paypal')">
+            <h3>PayPal</h3>
+            <p>Pay with PayPal account or credit/debit card.</p>
+            <div class="payment-details" id="paypalDetails">
+                <!-- Add form or button for PayPal payment -->
+            </div>
+        </div>
+        <!-- Add more payment options as needed -->
+    </div>
+
+    <script>
+        function togglePaymentDetails(paymentMethod) {
+            var paymentDetails = document.getElementById(paymentMethod + 'Details');
+            if (paymentDetails.style.display === 'none') {
+                paymentDetails.style.display = 'block'; // Show payment details
+            } else {
+                paymentDetails.style.display = 'none'; // Hide payment details
+            }
+        }
+    </script>
+</body>
+</html>

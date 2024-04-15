@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Information</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 50%;
+            margin: 20px;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        button {
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Table Information</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Table Name</th>
+                <th>Table Number</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Table 1</td>
+                <td>101</td>
+                <td><button onclick="redirectToPage(101)">Go to Table</button></td>
+            </tr>
+            <tr>
+                <td>Table 2</td>
+                <td>102</td>
+                <td><button onclick="redirectToPage(102)">Go to Table</button></td>
+            </tr>
+            <!-- Add more table rows as needed -->
+        </tbody>
+    </table>
+
+    <script>
+        function redirectToPage(tableNumber) {
+            // Redirect to a page, you can change the URL as needed
+            window.location.href = "table_page.html?table=" + tableNumber;
+        }
+    </script>
+</body>
+</html>

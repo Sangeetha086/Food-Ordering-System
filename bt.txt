@@ -1,0 +1,1 @@
+<button onclick="proceedToCheckout()">Proceed to Checkout</button>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complete Payment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background:url('complete.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+        }
+        form {
+            margin-top: 20px;
+        }
+        input[type="hidden"] {
+            display: none;
+        }
+        button {
+            display: block;
+            width: 20%;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #ff5100;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Complete Payment</h1>
+    <form id="order-form" action="addorder.php" method="post">
+        <div id="view-order-details"></div>
+        <input type="hidden" name="orderId" id="orderIdInput" value="">
+        <input type="hidden" name="namee" id="nameInput" value="">
+        <input type="hidden" name="phoneNum" id="phoneNumInput" value="">
+        <input type="hidden" name="tableNum" id="tableNumInput" value="">
+        <input type="hidden" name="cart" id="cartInput" value="">
+        <input type="hidden" name="dateTime" id="dateTimeInput" value="">
+        <button type="submit" id="complete-order-btn">Complete Order</button>
+    </form>
+    <button onclick="goBack()">Back</button>
+
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+
+        var orderId = sessionStorage.getItem("orderID");
+        var name=sessionStorage.getItem("name");
+        var phoneNum = sessionStorage.getItem("phone");
+        var tableNum = sessionStorage.getItem("table");
+        var storedCart = sessionStorage.getItem("cart");
+        var cart = storedCart ? JSON.parse(storedCart) : [];
+
+        var viewOrderDetailsContainer = document.getElementById("view-order-details");
+
+        // Create the table for order details
+        var table = document.createElement('table');
+        var tbody = document.createElement('tbody');
+        var headers = ['Name','Table Number', 'Phone Number', 'Order ID', 'Date & Time', 'Total', 'Cart Items'];
+        var data = [name,tableNum, phoneNum, orderId, getCurrentDateTime(), calculateTotal(cart), getCartItems(cart)];
+
+        // Populate table headers
+        var thead = document.createElement('thead');
+        var headerRow = document.createElement('tr');
+        headers.forEach(function(headerText) {
+            var th = document.createElement('th');
+            th.textContent = headerText;
+            headerRow.appendChild(th);
+        });
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+
+        // Populate table data
+        var dataRow = document.createElement('tr');
+        data.forEach(function(value) {
+            var td = document.createElement('td');
+            td.textContent = value;
+            dataRow.appendChild(td);
+        });
+        tbody.appendChild(dataRow);
+        table.appendChild(tbody);
+
+        viewOrderDetailsContainer.appendChild(table);
+
+        // Function to calculate total from cart
+        function calculateTotal(cart) {
+            var total = cart.reduce(function(acc, item) {
+                return acc + item.price;
+            }, 0);
+            return '₹' + total.toFixed(2);
+        }
+
+        // Function to get cart items as a string
+        function getCartItems(cart) {
+            var items = cart.map(function(item) {
+                return item.name;
+            });
+            return items.join(', ');
+        }
+
+        // Function to get current date and time
+        function getCurrentDateTime() {
+            var now = new Date();
+            var date = now.toDateString();
+            var time = now.toLocaleTimeString();
+            return date + ' ' + time;
+        }
+
+        // Store order details in hidden inputs
+        document.getElementById("orderIdInput").value = orderId; 
+        document.getElementById("phoneNumInput").value = phoneNum;
+        document.getElementById("tableNumInput").value = tableNum;
+        document.getElementById("nameInput").value=name;
+        document.getElementById("cartInput").value = JSON.stringify(cart);
+
+           // Set the value of dateTimeInput
+        document.getElementById("dateTimeInput").value = getCurrentDateTime();
+
+        document.getElementById("order-form").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Display a confirmation popup
+        var confirmOrder = confirm("Are you sure you want to complete this order?");
+        if (confirmOrder) {
+            // If user confirms, submit the form
+            this.submit();
+        } else {
+            // If user cancels, do nothing
+            return false;
+        }
+    });
+
+
+
+        
+    </script>
+</div>
+
+</body>
+</html>
+```
+
